@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create </title>
+    <link rel="stylesheet" href="{{url_for('static', filename='createPost.css')}}">
+    <link rel="website icon" href="images/buzzhubIcon.png" type="image/x-icon">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 id="heading"><a href="/"></a>BuzzHub</a></h1>
+            <nav class="nav-bar">
+                <ul>
+                    <li><a href="/">Go Back</a></li>
+                    <li><a href="/accounts">Accounts</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="writePost">
+            <form action="{{ url_for('post') }}" method="post">
+                <textarea id="post" placeholder="Write Post" name="post" required></textarea>
+                <input type="submit" value="Post">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

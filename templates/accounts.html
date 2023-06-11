@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accounts</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='accounts.css')}}">
+    <link rel="website icon" href="images/buzzhubIcon.png" type="image/x-icon">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 id="heading">BuzzHub</h1>
+            <nav class="nav-bar">
+                <ul>
+                    <li><a href="/">Go Back</a></li>
+                    <li><a href="/creat">Creat Post</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="main">
+            <div class="profile-image">
+                <h1>Welcome</h1>
+                <img src="{{url_for('static', filename='images/defaultprofile.jpg')}}" alt="profile-Image">
+            </div>
+            <div class="customization">
+                <form action="{{url_for('customize')}}" name="customize" method = "POST">
+                    <input type="text" name="userName" id="user" placeholder="Enter Your UserName" autocomplete="off" required>
+                    <input type="password" name="userPassword" id="userPassword" placeholder="Enter Your Password" autocomplete="new-password" required>
+                    <input type="submit" value="Done">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,18 @@
+[
+    {
+        "post": "Hello world is not just some random urge, it is developer's fantasy...",
+        "user": {
+            "userName": "Akash",
+            "userPassword": "123"
+        },
+        "likes": 9,
+        "comments": [
+            "Nice",
+            "hello world",
+            "exactly...it is like an emotion to all developers are there. It's like the first step of us to this programming world.",
+            "wowwww....is so ?",
+            "Hello world is the very first thing I have ever learnt :)",
+            "This is awesome"
+        ]
+    }
+]

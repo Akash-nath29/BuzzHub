@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+* {
+    padding: 0;
+    margin: 0;
+}
+.container {
+    width: 100%;
+    height: 100vh;
+    background-color: #454545;
+}
+.header {
+    display: flex;
+    flex-direction: column  ;
+    align-items: center;
+    justify-content: center;
+}
+#heading {
+    font-size: 3rem;
+    font-family: 'Indie Flower', cursive;
+    color: #00ff00;
+    top: 0;
+}
+#heading a {
+    text-decoration: none;
+}
+.nav-bar {
+    background-color: #505050;
+    width: 100%;
+    height: 50px;
+}
+.nav-bar ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+    width: 100%;
+    height: 100%;
+}
+.nav-bar ul li a {
+    text-decoration: none;
+    color: #00ff00;
+    font-size: 25px;
+    font-family: 'Inter', sans-serif;
+}
+.writePost {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+form {
+    display: flex;
+    flex-direction: column  ;
+    align-items: center;
+    justify-content: center;
+}
+form textarea {
+    width: 150vh;
+    height: 50vh;
+    background-color: #454545;
+    border: none;
+    outline: none;
+    font-size: 30px;
+    color: #fff;
+    padding: 30px;
+    margin: 5vh;
+}
+form input[type=submit] {
+    width: 30vh;
+    height: 60px;
+    border-radius: 20px;
+    font-size: 20px;
+    background-color: #00ff00;
+    color: #454545;
+    font-weight: 600;
+    border: none;
+    outline: none;
+}

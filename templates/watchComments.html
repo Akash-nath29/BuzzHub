@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commnets</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='watchComments.css')}}">
+    <link rel="website icon" href="images/buzzhubIcon.png" type="image/x-icon">
+</head>
+<body>
+    <div class="container">
+        <div class="top">
+            <h1 id="heading">BuzzHub</h1>
+            <nav class="nav-bar">
+                <ul>
+                    <li><a href="/creat">Creat post</a></li>
+                    <li><a href="/accounts">Accounts</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="main-content">
+            <div class="header">
+                <div class="topPart">
+                    <img src="{{url_for('static', filename='images/defaultProfile.jpg')}}" alt="Profile Picture">
+                    <h3>{{post.user['userName']}}</h3>
+                </div>
+                <h1>{{post.post}}</h1>
+            </div>
+            <div class="comments">
+                {% for comment in post.comments %}
+                <span class="topPart">
+                <div class="profile-image">
+                    {% if post.profile_image %}
+                    <img id="profileImage"
+                        src="{{ url_for('static', filename=post.profile_image) }}"
+                        alt="Profile Image"
+                    />
+                    {% else %}
+                    <img id="profileImage"
+                        src="{{ url_for('static', filename='images/defaultProfile.jpg') }}"
+                        alt="Default Profile Image"
+                    />
+                    {% endif %}
+                </div>
+                <h3>{{ session['userName'] }}</h3>
+                </span>
+                <p id="comment-data">{{ comment }}</p>
+                {% endfor %}
+            </div>
+            <div class="comment-form">
+                <form
+                    action="{{ url_for('comment_post', post_id=post_id) }}"
+                    method="POST"
+                    id="commentformId"
+                >
+                    <input
+                        type="text"
+                        name="comment"
+                        placeholder="Add a comment..."
+                        required
+                        autocomplete="off"
+                    />
+                    <button type="submit">Comment</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuzzHub</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='homePage.css')}}">
+    <link rel="Website Icon" href="images/buzzhubIcon.png">
+</head>
+<body>
+    <div class="container">
+        <div class="top">
+            <h1 id="heading">BuzzHub</h1>
+            <nav class="nav-bar">
+                <ul>
+                    <li><a href="/creat">Creat post</a></li>
+                    <li><a href="/accounts">Accounts</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="main-content">
+            {% for post in posts %}
+            <div class="post">
+                {% if post %}
+                <div id="userDatas">
+                    <img src="{{url_for('static', filename='images/defaultProfile.jpg')}}" alt="User  Profile Picture">
+                    <h3>{{post.user['userName']}}</h3>
+                </div>
+                <div class="post-content">
+                    <h1>{{post.post}}</h1>
+                </div>
+                <div class="reactions">
+                    <form action="{{ url_for('like_post', post_id=loop.index0) }}" method="post" id="like">
+                        <button type="submit" class="like-button">
+                            <i class="fa-solid fa-heart" id="like"  onclick="likeHeart()"></i>
+                            <span class="like-count">{{ post.likes }}</span>
+                        </button>
+                    </form>
+                    <i class="fa-solid fa-comment" onclick="comment()"></i>
+                    <a href="{{ url_for('view_comments', post_id=loop.index0) }}">
+                        <i class="fa-solid fa-eye"></i>
+                    </a>
+                </div>
+                <form
+                    action="{{ url_for('comment_post', post_id=loop.index0) }}"
+                    method="POST"
+                    id="comment"
+                >
+                    <input
+                        type="text"
+                        name="comment"
+                        placeholder="Add a comment..."
+                        required
+                        autocomplete="off"
+                    />
+                    <button type="submit" onclick="postDone()">Post</button>
+                </form>
+                {% else %}
+                <h1>Nothing to show here</h1>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <script src="https://kit.fontawesome.com/dabeb5f8c7.js" crossorigin="anonymous"></script>
+    <script src="{{url_for('static', filename='homeScript.js')}}"></script>
+</body>
+</html>
